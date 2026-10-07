@@ -1,6 +1,6 @@
-# EduPulse - Enterprise Student Management System
+# EduPulse - Full-Stack Student Management System
 
-A full-stack, enterprise-grade **Student Management System (SMS)** built with **Python 3.12**, **Django 6.0**, **Django REST Framework (DRF)**, **MySQL**, and **React 19 (Vite)**. 
+A full-stack **Student Management System (SMS)** built with **Python 3.12**, **Django 6.0**, **Django REST Framework (DRF)**, **MySQL**, and **React 19 (Vite)**.
 
 Designed with a modern Slate & Indigo UI/UX aesthetic, responsive analytics dashboards, batch class attendance tracking, automatic 4.0 scale GPA and letter grade computation, role-based access control (RBAC), class-appropriate data isolation, and secure CSV report exports.
 
@@ -49,7 +49,7 @@ The system implements strict **Role-Based Access Control (RBAC)** enforced at th
 ```
 StudentManagementSystem/
 ├── .env.example                     # Root environment configuration template
-├── .gitignore                    # Git exclusion rules
+├── .gitignore                       # Git exclusion rules
 ├── README.md                        # Project documentation
 ├── student_management/              # Django Backend Application
 │   ├── .env.example                 # Backend environment template
@@ -85,7 +85,7 @@ StudentManagementSystem/
 ## 🔒 Security Highlights
 
 1. **JWT Authentication (`djangorestframework-simplejwt`)**: Token-based authentication using short-lived Access Tokens and Refresh Tokens.
-2. **Backend Role Authorization**: All write operations (`POST`, `PUT`, `DELETE`) are guarded by Django REST Framework permission classes ([`permissions.py`](file:///d:/tasks45/StudentManagementSystem/student_management/students/permissions.py)). Frontend UI changes do not bypass backend enforcement.
+2. **Backend Role Authorization**: All write operations (`POST`, `PUT`, `DELETE`) are guarded by Django REST Framework permission classes (`permissions.py`). Frontend UI changes do not bypass backend enforcement.
 3. **Student Data Isolation**: Querysets for `Student`, `Enrollment`, `Attendance`, and `Mark` viewsets automatically filter records so logged-in students can only retrieve their own data (`user = request.user`). Direct URL/API calls to another student's profile return `403 Forbidden` or `404 Not Found`.
 4. **Teacher Class-Level Access Control**: Teachers are assigned to specific courses (`Course.teacher`). A Teacher can only view, batch-mark attendance, or record marks for students enrolled in their assigned classes. Cross-teacher modifications return `403 Forbidden`.
 5. **Protected CSV Export Endpoints**: `/api/reports/students/csv/`, `/api/reports/attendance/csv/`, and `/api/reports/marks/csv/` require authentication and `IsTeacherOrAdmin` permission, scoping output to appropriate classes.
@@ -155,7 +155,7 @@ The database seed command creates demo accounts for instant testing:
 
 ### 1. Clone Repository & Setup Environment
 ```bash
-git clone https://github.com/your-username/student-management-system.git
+git clone https://github.com/suyogshinde-dev/student-management-system.git
 cd student-management-system
 ```
 
@@ -178,7 +178,6 @@ pip install -r requirements.txt
 cp .env.example .env
 
 # Run database migrations to create MySQL tables
-python manage.py makemigrations
 python manage.py migrate
 
 # Seed database with demo accounts, departments, courses, students, and marks
@@ -207,16 +206,11 @@ Visit **[http://localhost:5173](http://localhost:5173)** in your browser.
 
 ## 🧪 Testing & Verification
 
-The codebase includes an automated security and role-authorization test suite ([`test_security_audit.py`](file:///C:/Users/rkool/.gemini/antigravity-ide/brain/f1aa4e42-fd10-4f36-8279-36510f3bf901/scratch/test_security_audit.py)):
-
-```bash
-# Run security & role isolation tests against running server
-python test_security_audit.py
-```
+The system underwent comprehensive security, API authorization, and role isolation testing during development to verify backend access controls and data isolation policies.
 
 ### Verification Checklist Covered:
 - [x] Anonymous access to API endpoints and CSV exports is blocked (`401 Unauthorized`).
-- [x] Student role receives isolated data (`1` record) and cannot perform write operations (`403 Forbidden`).
+- [x] Student role receives isolated data and cannot perform write operations (`403 Forbidden`).
 - [x] Student cannot inspect another student's profile or transcript (`403 Forbidden` / `404 Not Found`).
 - [x] Teacher 1 (`teacher`) can view and manage assigned CS courses, but is blocked from modifying Teacher 2's EC classes (`403 Forbidden`).
 - [x] Client-side UI role switching does not bypass Django backend authorization.
