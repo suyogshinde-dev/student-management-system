@@ -1,0 +1,109 @@
+{% extends "students/base.html" %}
+
+{% block title %}
+Add Student
+{% endblock %} 
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Add New Student</h2>
+    <form method="post">
+        {% csrf_token %}
+
+        {% if form.non_field_errors %}
+
+            <div class="alert alert-danger">
+            {{ form.non_field_errors }}
+           </div>
+
+        {% endif %}
+
+    <div class="row">
+    <div class="col-md-6 mb-3">
+        <label for="name" class="form-label">{{ form.name.label }}</label>
+        {{ form.name }}
+        <div class="text-danger">
+        {{ form.name.errors}}
+        
+    </div>
+</div>
+
+<div class="col-md-6 mb-3">
+    <label for="roll_number" class="form-label">{{ form.roll_number.label }}</label>
+    {{ form.roll_number }}
+    <div class="text-danger">
+        {{ form.roll_number.errors}}
+        
+    </div>
+
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+    <label for="email" class="form-label">{{ form.email.label }}</label>
+    {{ form.email }}
+    <div class="text-danger">
+        {{ form.email.errors}}
+        
+    </div>
+</div>
+
+<div class="col-md-6 mb-3">
+    <label for="mobile_number" class="form-label">{{ form.mobile_number.label }}</label>
+    {{ form.mobile_number }}
+    <div class="text-danger">
+        {{ form.mobile_number.errors}}
+
+        </div>
+    </div>
+
+</div>
+    
+    <div class="mb-3">
+        <label class="form-label">{{ form.gender.label }}</label><br>
+        {{ form.gender }}
+        <div class="text-danger">
+            {{ form.gender.errors }}
+        </div>
+
+    </div>
+    
+    <div class="row">
+
+    <div class="col-md-6 mb-3">
+        <label for="date_of_birth" class="form-label">{{ form.date_of_birth.label }}</label>
+        {{ form.date_of_birth }}
+        <div class="text-danger">
+            {{ form.date_of_birth.errors}}
+
+        </div>
+    </div>
+    
+    <div class="col-md-6 mb-3">
+        <label for="course" class="form-label">{{ form.course.label }}</label>
+        {{ form.course }}
+        <div class="text-danger">
+            {{ form.course.errors}}
+
+        </div>
+    </div>
+
+    </div>
+
+    <div class="mb-3">
+        <label for="address" class="form-label">{{ form.address.label }}</label>
+        {{ form.address }}
+        <div class="text-danger">
+            {{ form.address.errors}}
+
+        </div>
+    </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+</div>
+{% endblock %}

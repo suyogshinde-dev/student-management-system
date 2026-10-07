@@ -1,0 +1,28 @@
+h1 {
+    color: red;
+    text-align: center;
+    font-size: 40px;
+}
+h2 {
+    text-align: center;
+}
+
+body {
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 1000px;
+}
+
+table {
+    border: 2px solid black;
+    border-collapse: collapse;
+    margin: auto;
+}
+
+th,
+td {
+    border: 2px solid black;
+    padding: 8px;
+}

@@ -1,0 +1,20 @@
+{% extends "students/base.html" %}
+
+{% block title %}
+Student Details
+{% endblock %}
+
+{% block content %}
+
+<body>
+    <h2>Student Details</h2>
+    <p><strong>Name:</strong> {{ student.name }}</p>
+    <p><strong>Roll Number:</strong> {{ student.roll_number }}</p>
+    <p><strong>Email:</strong> {{ student.email }}</p>
+    <p><strong>Mobile Number:</strong> {{ student.mobile_number }}</p>
+    <p><strong>Course:</strong> {{ student.course }}</p>
+    <p><strong>Gender:</strong> {{ student.gender }}</p>
+    <p><strong>Date of Birth:</strong> {{ student.date_of_birth }}</p>
+    <p><strong>Address:</strong> {{ student.address }}</p>
+
+    {% endblock %}

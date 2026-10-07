@@ -1,0 +1,62 @@
+{% extends "students/base.html" %}
+
+{% block title %}
+Edit Student
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Edit Student</h2>
+    <form method="post">
+        {% csrf_token %}
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" id="name" name="name" value="{{ student.name }}" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label for="roll_number" class="form-label">Roll Number</label>
+        <input type="text" id="roll_number" name="roll_number" value="{{ student.roll_number }}" class="form-control">
+    </div>
+    
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" name="email" value="{{ student.email }}" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label for="mobile_number" class="form-label">Mobile_Number</label>
+        <input type="tel" name="mobile_number" id="mobile_number" value="{{ student.mobile_number }}" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Gender</label><br>
+
+        <input type="radio" id="male" name="gender" value="Male" {% if student.gender == "Male" %}checked{% endif %}>
+        <label for="male">Male</label>
+        
+        <input type="radio" id="female" name="gender" value="Female"{% if student.gender == "Female" %}checked{% endif %}>
+        <label for="female">Female</label>
+        
+        <input type="radio" id="other" name="gender" value="Other"{% if student.gender == "Other" %}checked{% endif %}>
+        <label for="other">Other</label>
+    </div>
+
+    <div class="mb-3">
+        <label for="date_of_birth" class="form-label">Date Of Birth</label>
+        <input type="date" id="date_of_birth" name="date_of_birth" value="{{ student.date_of_birth|date:'Y-m-d' }}" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label for="course" class="form-label">Course</label>
+        <input type="text" id="course" name="course" value="{{ student.course }}" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label for="address" class="form-label">Address</label>
+        <textarea name="address" id="address" class="form-control">{{ student.address }}</textarea>
+    </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>
+    {% endblock %}
