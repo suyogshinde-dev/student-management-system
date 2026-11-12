@@ -220,35 +220,26 @@ The system underwent comprehensive security, API authorization, and role isolati
 
 ## 📸 Screenshots
 
-*(Placeholders for application screenshots)*
+### 1. Login Page
+![Login Page](screenshots/login-page.png)
 
-### 1. Admin Analytics Dashboard
-```
-+-----------------------------------------------------------------------+
-|  [ Screenshot Placeholder: Admin Analytics Dashboard with Recharts ]  |
-+-----------------------------------------------------------------------+
-```
+### 2. Admin Analytics Dashboard
+![Admin Analytics Dashboard](screenshots/admin-dashboard.png)
 
-### 2. Student Directory & Profile Drawer
-```
-+-----------------------------------------------------------------------+
-|  [ Screenshot Placeholder: Student Directory & Transcript Drawer ]   |
-+-----------------------------------------------------------------------+
-```
+### 3. Student Directory
+![Student Directory](screenshots/student-directory.png)
 
-### 3. Batch Attendance Marking Dialog
-```
-+-----------------------------------------------------------------------+
-|  [ Screenshot Placeholder: Batch Mark Class Attendance Modal ]        |
-+-----------------------------------------------------------------------+
-```
+### 4. Add New Student Form
+![Add New Student Form](screenshots/add-student.png)
 
-### 4. Student Portal View
-```
-+-----------------------------------------------------------------------+
-|  [ Screenshot Placeholder: Student Personal Dashboard & Grades ]      |
-+-----------------------------------------------------------------------+
-```
+### 5. Student Academic Profile
+![Student Academic Profile](screenshots/student-profile.png)
+
+### 6. Batch Attendance Marking Dialog
+![Batch Attendance Marking Dialog](screenshots/batch-attendance.png)
+
+### 7. Student Portal View
+![Student Portal Dashboard](screenshots/student-portal.png)
 
 ---
 
