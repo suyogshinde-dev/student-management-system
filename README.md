@@ -149,8 +149,8 @@ The database seed command creates demo accounts for instant testing:
 ## ⚡ Installation and Setup Instructions
 
 ### Prerequisites
-- **Python 3.10+**
-- **Node.js v18+ & npm**
+- **Python 3.12 or newer**
+- **Node.js 20.19+ or 22.12+** & **npm**
 - **MySQL Server** running on `localhost:3306`
 
 ### 1. Clone Repository & Setup Environment
@@ -164,17 +164,27 @@ cd student-management-system
 # Navigate to Django backend directory
 cd student_management
 
-# Create and activate Python virtual environment
+# Create Python virtual environment
 python -m venv venv
-# On Windows:
-venv\Scripts\activate
-# On Linux/macOS:
+
+# Activate virtual environment:
+# On Windows (PowerShell):
+# (If needed: Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned)
+.\venv\Scripts\Activate.ps1
+# On Windows (Command Prompt):
+venv\Scripts\activate.bat
+# On macOS / Linux:
 source venv/bin/activate
 
 # Install backend dependencies
 pip install -r requirements.txt
 
 # Create environment configuration file from template
+# On Windows (PowerShell):
+Copy-Item .env.example .env
+# On Windows (Command Prompt):
+copy .env.example .env
+# On macOS / Linux:
 cp .env.example .env
 
 # Run database migrations to create MySQL tables
@@ -188,7 +198,7 @@ python manage.py runserver 127.0.0.1:8000
 ```
 
 ### 3. Frontend Setup (React.js + Vite)
-Open a new terminal window:
+Open a new terminal window (from project root):
 ```bash
 # Navigate to frontend directory
 cd frontend
